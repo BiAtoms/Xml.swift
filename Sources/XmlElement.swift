@@ -15,8 +15,11 @@ open class XmlElement {
     open var children: [XmlElement] = []
     open var parent: XmlElement?
     
-    public init(name: String) {
+    public init(name: String, xmlns: String? = nil) {
         self.name = name
+        if let xmlns = xmlns {
+            attributes["xmlns"] = xmlns
+        }
     }
     
     open var xml: String {
