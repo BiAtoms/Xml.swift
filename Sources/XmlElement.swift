@@ -17,9 +17,7 @@ open class XmlElement {
     
     public init(name: String, xmlns: String? = nil) {
         self.name = name
-        if let xmlns = xmlns {
-            attributes["xmlns"] = xmlns
-        }
+        attributes["xmlns"] = xmlns
     }
     
     open var xml: String {
