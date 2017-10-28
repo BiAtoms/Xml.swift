@@ -51,16 +51,12 @@ extension XmlParser: XMLParserDelegate {
     }
     
     public func parser(_ parser: XMLParser, foundCharacters string: String) {
-        if currentElement.text == nil {
-            currentElement.text = string
-        } else {
-            currentElement.text! += string
-        }
+        currentElement.text += string
     }
     
     public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         assert(currentElement.name == elementName, "This should not ever happen")
-        currentElement.text = currentElement.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        currentElement.text = currentElement.text.trimmingCharacters(in: .whitespacesAndNewlines)
         currentElement = currentElement.parent
         self.delegate?.parser(self, didEndElement: elementName)
     }
