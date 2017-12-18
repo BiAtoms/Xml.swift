@@ -4,7 +4,11 @@
 
 # Xml.swift
 
-An XMLParser wrapper for swift.
+A Foundation.XMLParser wrapper for swift. Written as a part of [Xmmp.swift](https://github.com/BiAtoms/Xmpp.swift).
+
+# Features
+- Calls delegate method (with `XmlElement`) when an element is parsed from the provided source (`Data`, `InputStream` or file `URL`).
+- Stores parsed document as a variable (accessible during parsing)
 
 
 ## Installation
