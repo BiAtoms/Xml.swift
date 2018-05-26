@@ -11,18 +11,28 @@ import Foundation
 open class XmlElement {
     open var name: String
     open var attributes: [String:String] = [:]
-    open var text: String = "" //I guess this is ok.
+    open var text: String
     open var children: [XmlElement] = []
     open var parent: XmlElement?
     
-    public init(name: String, xmlns: String? = nil) {
+    public init(name: String, xmlns: String? = nil, text: String = "") {
         self.name = name
+        self.text = text
         attributes["xmlns"] = xmlns
     }
     
     open var xml: String {
         //TODO: generate compact xml
         return "<\(name)\(attributes.map({" \($0)=\"\($1)\" "}).joined())>\(text)\(children.map({ $0.description }).joined())</\(name)>"
+    }
+    
+    open subscript(key: String) -> String? {
+        get {
+            return attributes[key]
+        }
+        set {
+            attributes[key] = newValue
+        }
     }
 }
 

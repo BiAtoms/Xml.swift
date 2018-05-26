@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Xml.swift'
-    s.version          = '1.0.0'
+    s.version          = '1.1.0'
     s.summary          = 'An XMLParser wrapper for swift.'
     s.homepage         = 'https://github.com/BiAtoms/Xml.swift'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
